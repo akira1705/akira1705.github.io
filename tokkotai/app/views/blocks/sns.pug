@@ -1,0 +1,9 @@
+mixin snsItem(href, src, alt)
+    p.sns-item
+        a.d-flex.h-100(href= href)&attributes(attributes)
+            img.m-auto(src= src, alt= alt)
+
+.d-flex.align-items-center.sns.mZoom
+    +snsItem("https://www.facebook.com/","assets/images/icon/facebook.svg","facebook")(target="_blank")
+    +snsItem("https://www.instagram.com/","assets/images/icon/instagram.svg","instagram")(target="_blank")
+    +snsItem("https://www.youtube.com/","assets/images/icon/youtube.svg","youtube")(target="_blank")

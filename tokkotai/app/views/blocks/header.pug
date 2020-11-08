@@ -1,0 +1,12 @@
+header#header
+    .header-top.d-flex.justify-content-between
+        h1
+            +link("/").d-inline-block.logo: +img("assets/images/logo.svg", "LOGO")
+        include sns
+    nav.navbar.navbar-expand-md.p-0
+        button#switchBtn.navbar-toggler.spBars(aria-expanded="false")
+            .header_MenuButton
+                each val in ["", "", ""]
+                    span
+        #topMenu.d-flex.flex-column.flex-md-row.justify-content-md-end.align-items-center.py-4.py-md-0
+            include nav

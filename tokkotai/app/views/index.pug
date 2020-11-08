@@ -1,0 +1,147 @@
+extends layout/layout
+
+block vars
+    -title = 'トップ'
+    -bodyClass = 'topPage'
+
+block container
+    .banner
+        +picture("assets/images/banner_1920.png", "assets/images/banner_1440.png", "assets/images/banner_sp.png", "命をかけて、守りたい人はいますか？")
+        .headTit.d-flex.w-100.justify-content-center.align-items-center
+            hgroup.w-100.text-center
+                h1.text-white.text-shadow 命をかけて、守りたい人はいますか？
+    
+    //- TODO
+    //- .contMenu
+    //-     .contMenu-desc
+    //-         .neo#concept
+    //-         +picture("assets/images/banner_00.png", "assets/images/banner_00_sp.png")
+    //-         .contMenu-desc__pos.text-center
+    //-             .efade
+    //-                 p.text-white.text-shadow.mb-4
+    //-                     | サンドイッチが好きで昔からcafeでアルバイトをしてきました。
+    //-                     br
+    //-                     | そして、サンドイッチを極める為に研究に研究を重ねてきました。
+    //-                     br
+    //-                     | 今回コロナで世の中が一変し、
+    //-                     br
+    //-                     | 僕が働いていたcafeも閉店に追いやられてしまいました。
+    //-                 p.text-white.text-shadow.mb-4
+    //-                     | そこで一念発起、サンドイッチで勝負したい。
+    //-                     br
+    //-                     | その気持ちで今回六本木さんどをオープン致しました。
+    //-                 p.text-white.text-shadow.mb-4
+    //-                     | ただ、美味しいだけでなく、
+    //-                     br
+    //-                     | お客様を待たせずに提供出来る様にどうしたら良いかという事も考えに考え抜き、
+    //-                     br
+    //-                     | 今のスタイルにたどり着きました。
+    //-                     br
+    //-                     | （一商品五分以内のご提供）
+    //-                 p.text-white.text-shadow.mb-5
+    //-                     | 六本木さんどは
+    //-                     br
+    //-                     | 深夜小腹が減ったなをコンセプトに夜の小腹に対応するべく
+    //-                     br
+    //-                     | 日中ではなく夜帯の時間を中心に営業をデリバリーオンリーで行っております。
+    //-                     br
+    //-                     | 少しでも皆さんに美味しいと思って頂けたら幸いです。
+    //-                 p.text-white.text-shadow
+    //-                     | 六本木さんど店主
+    //-     .contMenu-list
+    //-         .neo#menu
+    //-         +titCont(0, "MENU", "py-40 py-md-60")
+    //-         div
+    //-             +item(
+    //-                 "col1",
+    //-                 "assets/images/prod_00.png",
+    //-                 "元祖!!六本木サンド",
+    //-                 "GANSO ROPPONGI SANDO",
+    //-                 "自家製ハンバーグに特製デミグラスソースを添えて",
+    //-                 "¥1,500"
+    //-             )
+    //-             +item(
+    //-                 "col1",
+    //-                 "assets/images/prod_01.png",
+    //-                 "六本木ポテサラサンド",
+    //-                 "ROPPONGI POTESARA SANDO",
+    //-                 "特製のポテトサラダをご賞味ください",
+    //-                 "¥1,000"
+    //-             )
+    //-             +item(
+    //-                 "col1",
+    //-                 "assets/images/prod_02.png",
+    //-                 "六本木タマゴサンド",
+    //-                 "ROPPONGI TAMAGO SANDO",
+    //-                 "ふわとろタマゴと特製からしマヨネーズと共に",
+    //-                 "¥1,000"
+    //-             )
+    //-         div
+    //-             .item.item__2
+    //-                 .container
+    //-                     .row
+    //-                         +item(
+    //-                             "col2",
+    //-                             "assets/images/prod_03.png",
+    //-                             "フライドポテト",
+    //-                             "FRENCH FRIES",
+    //-                             "プレーン・カレー・チリペッパー味からお選びください",
+    //-                             "¥500"
+    //-                         )
+    //-                         +item(
+    //-                             "col2",
+    //-                             "assets/images/prod_04.png",
+    //-                             "ポップコーン",
+    //-                             "POPCORN",
+    //-                             "プレーン・カレー・チリペッパー味からお選びください",
+    //-                             "¥500"
+    //-                         )
+    //-             .item.item__2
+    //-                 .container
+    //-                     .row
+    //-                         +item(
+    //-                             "col2",
+    //-                             "assets/images/prod_05.png",
+    //-                             "ミネストローネ",
+    //-                             "MINESTRONE",
+    //-                             "野菜の甘みがしみ込んで具沢山",
+    //-                             "¥500"
+    //-                         )
+    //-                         +item(
+    //-                             "col2",
+    //-                             "assets/images/prod_06.png",
+    //-                             "コーンポタージュ",
+    //-                             "CORN POTAGE",
+    //-                             "甘くて濃厚な仕上がり",
+    //-                             "¥500"
+    //-                         )
+    //- .bg-white.derivery
+    //-     .neo#derivery
+    //-     +titCont(0, "DERIVERY", "mb-40 mb-md-80")
+    //-     .container
+    //-         .row
+    //-             .col-md-4.mb-4.mb-md-0.aos-init(rel="reScroll", data-aos="zoom-in", data-aos-duration="400", data-aos-delay="300")
+    //-                 +link("https://delima.line.me/chain/317391/shop/3064562")(target="_blank")
+    //-                     +img("assets/images/line.png", "LINE").w-100
+    //-             .col-md-4.mb-4.mb-md-0.aos-init(rel="reScroll", data-aos="zoom-in", data-aos-duration="400", data-aos-delay="300")
+    //-                 +link("https://sp.demae-can.com/shopDetail/3064562")(target="_blank")
+    //-                     +img("assets/images/demae-can.png", "Demae-can").w-100
+    //-             .col-md-4.aos-init(rel="reScroll", data-aos="zoom-in", data-aos-duration="400", data-aos-delay="300")
+    //-                 +link()(target="_blank")
+    //-                     +img("assets/images/menu.png", "menu").w-100
+    //- .payment
+    //-     .container
+    //-         .row.justify-content-center.justify-content-md-start
+    //-             .col-10.col-md-12.d-flex.flex-column.flex-md-row.justify-content-md-between
+    //-                 .d-flex.align-items-center.mb-5.mb-md-0.aos-init(rel="reScroll", data-aos="zoom-in", data-aos-duration="400", data-aos-delay="300")
+    //-                     +img("assets/images/icon/time.svg", "配達は30分以内にお届け!")
+    //-                         p.ml-3.text-white 配達は30分以内にお届け
+    //-                 .d-flex.align-items-center.mb-5.mb-md-0.aos-init(rel="reScroll", data-aos="zoom-in", data-aos-duration="400", data-aos-delay="300")
+    //-                     +img("assets/images/icon/take.svg", "お持ち帰りもできます！!")
+    //-                         p.ml-3.text-white お持ち帰りもできます！
+    //-                 .d-flex.align-items-center.aos-init(rel="reScroll", data-aos="zoom-in", data-aos-duration="400", data-aos-delay="300")
+    //-                     +img("assets/images/icon/cash.svg", "ご注文は2,000円以上から承ります!")
+    //-                         p.ml-3.text-white ご注文は2,000円以上から承ります
+
+block addScript
+    //- script(src='assets/scripts/type-writer.js')

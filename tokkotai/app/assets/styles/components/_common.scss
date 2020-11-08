@@ -1,0 +1,241 @@
+/*===== Font Begin =====*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
+.f {
+    &-default {font-family: 'Noto Serif JP', serif;}
+}
+/*===== Font End =====*/
+
+body, html {font-size: $main_font; color: $col_txt; background-color: $white; @extend .f-default;}
+body {transition: 0; @extend .f-default;;}
+* {word-wrap: break-word; color: $col_txt; margin-bottom: 0; line-height: 1.8; @include fSize(1.8rem, 1.4rem);}
+p {margin-bottom: 0;}
+a {@include linkColor($col_txt); display: inline-block;
+    @include resp(md) {transition: 0.3s;
+        &:hover {opacity: 0.7;}
+    }
+}
+picture {width: 100%; display: block;}
+dl {margin-bottom: 0;}
+button {outline: none;
+    &:hover, &:focus {outline: none;}
+}
+h1, h2, h3, h4, h5, h6 {font-weight: bold; margin-bottom: 0; line-height: 1;}
+main {overflow: hidden;}
+/*=== custom design ===*/
+@media (min-width: 770px) and (max-width: 991px) {
+    // .container {max-width: calc(100% - 80px);}
+    .col-ds-auto{-ms-flex: 0 0 auto; flex: 0 0 auto; width: auto; max-width: 100%;}
+    .col-ds-1 {-ms-flex: 0 0 8.333333%; flex: 0 0 8.333333%; max-width: 8.333333%;}
+    .col-ds-2 {-ms-flex: 0 0 16.666667%; flex: 0 0 16.666667%; max-width: 16.666667%;}
+    .col-ds-3 {-ms-flex: 0 0 25%; flex: 0 0 25%; max-width: 25%;}
+    .col-ds-4 {-ms-flex: 0 0 33.333333%; flex: 0 0 33.333333%; max-width: 33.333333%;}
+    .col-ds-5 {-ms-flex: 0 0 41.666667%; flex: 0 0 41.666667%; max-width: 41.666667%;}
+    .col-ds-6 {-ms-flex: 0 0 50%; flex: 0 0 50%; max-width: 50%;}
+    .col-ds-7 {-ms-flex: 0 0 58.333333%; flex: 0 0 58.333333%; max-width: 58.333333%;}
+    .col-ds-8 {-ms-flex: 0 0 66.666667%; flex: 0 0 66.666667%; max-width: 66.666667%;}
+    .col-ds-9 {-ms-flex: 0 0 75%; flex: 0 0 75%; max-width: 75%;}
+    .col-ds-10 {-ms-flex: 0 0 83.333333%; flex: 0 0 83.333333%; max-width: 83.333333%;}
+    .col-ds-11 {-ms-flex: 0 0 91.666667%; flex: 0 0 91.666667%; max-width: 91.666667%;}
+    .col-ds-12 {-ms-flex: 0 0 100%; flex: 0 0 100%; max-width: 100%;}
+}
+/*===== commonn value =====*/
+%padLR {@include pd(x, 3rem, 1.5rem);}
+%padTB {@include pd(y, 8rem, 4rem);}
+$txtShadow:
+    0.1rem 0 0.4rem rgba(0, 0, 0, 0.6),
+    -0.1rem 0 0.4rem rgba(0, 0, 0, 0.6),
+    0 0.1rem 0.4rem rgba(0, 0, 0, 0.6),
+    0 -0.1rem 0.4rem rgba(0, 0, 0, 0.6);
+/*===== commonn value =====*/
+
+.text {
+    &-black {color: $black !important;}
+    &-des {color: $black_1;}
+    &-shadow {@include txtShadow(nor, $txtShadow);}
+    &-ver {
+        &-rl {writing-mode: vertical-rl;}
+        &-lr {writing-mode: vertical-lr;}
+    }
+}
+.bg-red {background-color: #bb2c2c;
+    @include resp(md) {background-color: transparent;}
+}
+.tit {
+    &__txt {@include fSize(4.8rem, 3.2rem); font-weight: normal;}
+    &__line {@include size(4.6rem, auto); @include mg(all, 1.5rem auto); border-color: $col_main; border-width: 0.5rem;
+        @include resp(md) {@include size(5.6rem, auto); border-width: 0.3rem;}
+    }
+}
+.neo {position: absolute; top: -$headSP;
+    @include resp(md) {top: -$headPC;}
+}
+.btnSty {border: solid 0.1rem $col_txt; @include pd(all, 1rem 1.5rem); text-align: center;
+    &__act {background-color: $col_txt; color: $white !important;}
+    &__none {background-color: $white; color: $col_txt;}
+    @include resp(md) {transition: 0.3s;
+        &__none:hover {background-color: $col_txt; color: $white !important;}
+    }
+}
+.svg {
+    &-arrow {
+        fill: none;
+        stroke: #62B0E2;
+        stroke-dasharray: 14;
+        stroke-dashoffset: 14;
+        -webkit-transition: stroke-dashoffset 0.2s;
+        -o-transition: stroke-dashoffset 0.2s;
+        transition: stroke-dashoffset 0.2s;
+        vertical-align:top
+    }
+    &-circle {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        fill: none;
+        stroke: #62B0E2;
+        stroke-width: 1px;
+        stroke-dasharray: 157;
+        stroke-dashoffset: 157;
+        -webkit-transition: stroke-dashoffset 0.4s;
+        -o-transition: stroke-dashoffset 0.4s;
+        transition: stroke-dashoffset 0.4s;
+        -webkit-transition-delay: .2s;
+        -o-transition-delay: .2s;
+        transition-delay: .2s;
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+        transform-origin:center center
+    }
+}
+.readMore {display: inline-block; line-height: 4rem; position: relative;
+    &:before, &:after {content: ""; border: solid 1px; -webkit-transition-delay: 0.7s; -o-transition-delay: 0.7s; transition-delay: 0.7s;}
+    &:before {@include size(3.6rem); border-color: #9B9B9B; border-radius: 999px; right: 0; @include posC(centerY);}
+    &:after {@include size(0.7rem); border-color: $black; border-left: none; border-bottom: none; position: absolute; @include css3-prefix(transform, translateY(-50%) rotate(45deg)); top: 50%; right: 18px;}
+    &-text {position: relative; display: inline-block; @include pd(all, 11px 68px 10px 0, 11px 40px 10px 0); vertical-align: top; letter-spacing: 1.4px;
+        &-arrow {@include posC(centerY); width: 51px; right: -5px; margin: -1px 0 0 -1px;
+            .icon-center {margin: -1px 0 0 2px; @include posC(); left: 33%;}
+        }
+    }
+    @include resp(md) {
+        &:before {@include size(4rem);}
+        &:hover {
+            &:before, &:after {opacity: 0;  -webkit-transition-delay: 0s; -o-transition-delay: 0s; transition-delay: 0s;}
+            .readMore-text-arrow {
+                .svg-circle {
+                    -webkit-transition: stroke-dashoffset 0.6s;
+                    -o-transition: stroke-dashoffset 0.6s;
+                    transition: stroke-dashoffset 0.6s;
+                    stroke-dashoffset: 0;
+                    -webkit-transition-delay: 0;
+                    -o-transition-delay: 0;
+                    transition-delay:0
+                }
+                .svg-arrow {
+                    stroke-dashoffset: 0;
+                    -webkit-transition: stroke-dashoffset 0.2s;
+                    -o-transition: stroke-dashoffset 0.2s;
+                    transition: stroke-dashoffset 0.2s;
+                    -webkit-transition-delay: 0.7s;
+                    -o-transition-delay: 0.7s;
+                    transition-delay:0.7s
+                }
+            }
+        }
+    }
+}
+.backTop {@include size(100%, 4.8rem); background-color: #9c9b9b; position: relative;
+    &:before{
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border: solid 0.2rem $white;
+        border-right: none;
+        border-bottom: none;
+        margin-top: 1rem;
+        @include size(3.2rem);
+        @include css3-prefix(transform, translate(-50%, -50%) rotate(45deg));
+    }
+}
+.op0 {opacity: 0 !important;}
+.f {
+    @include resp(md) {
+        &-md {
+        }
+    }
+}
+.lh {
+    &-1 {line-height: 1 !important;}
+    &-1_2 {line-height: 1.2 !important;}
+    &-1_8 {line-height: 1.8 !important;}
+    &-2 {line-height: 2 !important;}
+    @include resp(md) {
+        &-md {
+            &-1_8 {line-height: 1.8 !important;}
+            &-3 {line-height: 3 !important;}
+        }
+    }
+}
+.p {
+    &-30 {padding: 3rem;}
+    &x {
+        &-30 {@include pd(x, 3rem);}
+    }
+    &y {
+        &-20 {@include pd(y, 2rem);}
+        &-30 {@include pd(y, 3rem);}
+        &-40 {@include pd(y, 4rem);}
+    }
+    &t {
+        
+    }
+    &b {
+        &-100 {padding-bottom: 10rem;}
+    }
+    @include resp(md) {
+        &x-md {
+            &-40 {@include pd(x, 4rem);}
+            &_5 {@include pd(x, 5% !important);}
+        }
+        &y-md {
+            &-50 {@include pd(y, 5rem);}
+            &-60 {@include pd(y, 6rem);}
+        }
+        &t-md {
+            &-40 {padding-top: 4rem;}
+        }
+    }
+}
+.m {
+    &t {
+        &-9 {margin-top: 0.9rem;}
+    }
+    &b {
+        &-15 {margin-bottom: 1.5rem;}
+        &-20 {margin-bottom: 2rem;}
+        &-30 {margin-bottom: 3rem;}
+        &-40 {margin-bottom: 4rem;}
+        &-50 {margin-bottom: 5rem;}
+        &-60 {margin-bottom: 6rem;}
+        &-100 {margin-bottom: 10rem;}
+    }
+    &y {
+        &-50 {margin-bottom: 5rem; margin-top: 5rem;}
+    }
+    @include resp(md) {
+        &y-md {
+            &-100 {margin-bottom: 10rem; margin-top: 10rem;}
+        }
+        &b-md {
+            &-30 {margin-bottom: 3rem;}
+            &-40 {margin-bottom: 4rem;}
+            &-50 {margin-bottom: 5rem;}
+            &-60 {margin-bottom: 6rem;}
+            &-80 {margin-bottom: 8rem;}
+            &-100 {margin-bottom: 10rem;}
+            &--50 {margin-bottom: -5rem;}
+        }
+    }
+}

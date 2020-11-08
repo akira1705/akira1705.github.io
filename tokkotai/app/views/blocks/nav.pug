@@ -1,0 +1,16 @@
+mixin menuItem(vNo, menuName, href)
+    if vNo == 0
+        li.nav-item.effect-underline.position-relative
+            a.nav-link.text-center(href= href)= menuName
+    else
+        li.nav-item
+            a.nav-link.text-center(href= href)= menuName
+
+ul.d-block.d-md-flex.navbar-nav.ml-md-auto.menu.mZoom
+    +menuItem(0,"トップ", "/")
+    +menuItem(0,"顕彰会について", "a.html")
+    +menuItem(0,"特攻隊について（歴史）", "a.html")
+    +menuItem(0,"慰霊祭のご案内", "a.html")
+    +menuItem(0,"特攻像の奉納", "a.html")
+    +menuItem(0,"会報", "a.html")
+    +menuItem(1,"会員募集", "a.html")

@@ -1,0 +1,212 @@
+/*===== effect: text hover =====*/
+/*_____ effect sp menu zoom _____*/
+.mZoom {@include css3-prefix(transform, scale(1.2)); @include transition(1.4s, cubic-bezier(0.2, 0.9, 0.35, 1.11));
+    @at-root #{selector-parent(&, 1)} {
+        .act & {@include css3-prefix(transform, scale(1));}
+    }
+    @include resp(md) {@include css3-prefix(transform, scale(1));}
+}
+
+/*_____ underline _____*/
+@mixin effect-underline($x: 0px, $h: 1px, $b: -2px, $color: #000) {
+    $w: calc(100% + #{$x}*2);
+    $l: -$x;
+    &:before {
+        content: '';
+        position: absolute;
+        left: $l;
+        bottom: $b;
+        display: inline-block;
+        height: 1em;
+        width: $w;
+        border-bottom: $h solid;
+        border-color: $color;
+        opacity: 0;
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transform: scale(0,1);
+        transform: scale(0,1);
+    }
+    &:hover:before, &.active:before {opacity: 1; -webkit-transform: scale(1); transform: scale(1);}
+}
+
+/*_____ bg under text _____*/
+@mixin effect-hover($w: 100%, $h: 1px, $color: #000) {
+    position: relative; z-index: 1; display: block;
+    a {display: inline-block; position: relative; text-decoration: none; padding: 10px 0 0; transition: 0;
+        &:before {
+            content:'';
+            position: absolute;
+            @include size($w, $h);
+            @include css3-prefix(transform-origin, bottom right);
+            @include css3-prefix(transform, scaleX(0));
+            top: 0;
+            left: -8px;
+            background-color: $color;
+            transition: transform 0.25s;
+            z-index: -1;
+        }
+        &:hover {color: $white !important;
+            &:before {transform-origin: bottom left; transform: scaleX(1);}
+        }
+    }
+}
+
+/*_____ bg over text _____*/
+.eff-bg-run {@include animation('bgRun-right_txt 0.4s'); @include css3-prefix(transform, scaleX(1) !important);
+    &:before {content: ""; @include size(100%); @include animation('bgRun-right_bg 0.6s'); position: absolute; top: 0; left: 0;}
+}
+
+/*_____ change text _____*/
+.effChange {cursor: pointer;
+    &-txt__change {overflow: hidden; padding: 0; line-height: 1;
+        span {position: relative; display: block; transition: 0.3s;
+            &:before {content: attr(data-hover); position: absolute; top: 100%; @include css3-prefix(transform, translate3d(0,0,0));}
+            &:after {content: attr(data-name); position: absolute; top: 200%; left: 0; @include css3-prefix(transform, translate3d(0,0,0));}
+        }
+    }
+    @include resp(md) {
+        .copyTxt_txt {display: inline-block; position: relative; text-decoration: none;
+            &:after {
+                content:'';
+                @include size(100%, 1px);
+                position: absolute;
+                bottom: 5px;
+                left: 0;
+                background-color: $black;
+                @include css3-prefix(transform, scaleX(0));
+                transform-origin: bottom right;
+                transition: transform 0.3s;
+            }
+        }
+        &:hover .effChange-txt__change span, &:focus .effChange-txt__change span {@include css3-prefix(transform, translateY(-100%));}
+        &:hover .copyTxt_txt:after {transform-origin: bottom left; @include css3-prefix(transform, scaleX(1));}
+        &.is_copy .effChange-txt__change span {@include css3-prefix(transform, translateY(-200%));}
+        &-txt__change:hover {opacity: 1 !important;}
+    }
+}
+
+/*===== effect: show element =====*/
+.efade {opacity: 0; transition: 0.75s; @include css3-prefix('transform', translateY(10%));
+    &.non {opacity: 1; @include css3-prefix('transform', translateY(0));}
+    &-l {@include css3-prefix('transform', translateX(-10%));}
+    &-r {@include css3-prefix('transform', translateX(10%));}
+}
+
+/*===== effect: text blur =====*/
+@mixin txt-blur($time) {
+    @include animation(blurFadeInOut $time ease-in backwards);
+}
+@include keyframes(blurFadeInOut) {
+    0% {
+        opacity: 0;
+        text-shadow: 0px 0px 100px $white;
+        -webkit-transform: scale(1.2) translateX(200px);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0px 0px 1 $white;
+        -webkit-transform: scale(1) translateX(0);
+    }
+}
+
+/*===== effect: hover img =====*/
+@media screen and (min-width: 992px) {
+    /*===== zoom img =====*/
+    // .hoverZoom {
+    //     img {transition: 0.3s;}
+    //     &:before {content: ""; transition: 0.25s; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;}
+    //     *[class*="item"]:hover & {
+    //         &:before {background-color: rgba(0, 0, 0, 0.3);}
+    //         img {transform: scale(1.1);}
+    //     }
+    // }
+
+    .hoverZoom {
+        img {transition: 0.3s;}
+        &:hover img {transform: scale(1.1);}
+    }
+}
+.grayImage {
+    transition: filter .4s ease-in-out;
+    -webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+    filter: grayscale(100%); /* FF 35+ */
+    @include resp(md) {
+        &:hover {filter: grayscale(0); -webkit-filter: grayscale(0);}
+    }
+}
+/*===== grayscale img - show text =====*/
+.imgEff {position: relative; overflow: hidden; width: 100%; text-align: left;
+    * {transition: all 0.6s ease;}
+    > div {background-color: $black;}
+    img {opacity: 0.8; width: 100%; vertical-align: top; transition: opacity 0.35s;}
+    figcaption {position: absolute; bottom: 0; left: 0; @include size(100%);
+        > div {overflow: hidden; position: relative; @include size(100%, 50%);}
+        h3 {margin: 0; color: $white; position: absolute; left: 0; bottom: 0; width: 100%; text-align: center; padding: 0 30px; opacity: 0; @include css3-prefix('transform', translateY(150%));}
+    }
+    @include resp(md) {
+        &:hover {
+            img {opacity: 0.3; -webkit-filter: grayscale(100%); filter: grayscale(100%);}
+            figcaption h3:nth-of-type(2) {opacity: 1; @include css3-prefix('transform', translateY(0));}
+        }
+    }
+}
+
+/*===== icon circle =====*/
+@mixin icEff($color: #000) {
+    $w: calc(100% + 8px);
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include css3-prefix(transform, translate(-50%, -50%) scale(0.5));
+        @include size(#{$w});
+        @include border-radius(999px);
+        border: solid 1px $color;
+        opacity: 0;
+        -webkit-transition: opacity 0.25s, -webkit-transform 0.25s;
+        transition: opacity 0.25s, transform 0.25s;
+    }
+    @include resp(md) {
+        &:hover:before {opacity: 1; @include css3-prefix(transform, translate(-50%, -50%) scale(1));}
+    }
+}
+
+/*===== logo effect snap =====*/
+#logoEff {width: 100%;
+    &-path {fill-opacity: 0; fill: #231815; stroke: #231815; stroke-width: 1; stroke-linecap: round; stroke-dasharray: 600; stroke-dashoffset: 600;}
+}
+
+/*===== keyframes animation =====*/
+@include keyframes(menu-bar01) {
+    0% {-webkit-transform: translateY(10px) rotate(45deg);}
+    50% {-webkit-transform: translateY(10px) rotate(0);}
+    100% {-webkit-transform: translateY(0) rotate(0);}
+}
+@include keyframes(menu-bar02) {
+    0% {-webkit-transform: translateY(-10px) rotate(-45deg);}
+    50% {-webkit-transform: translateY(-10px) rotate(0);}
+    100% {-webkit-transform: translateY(0) rotate(0);}
+}
+@include keyframes(active-menu-bar01) {
+    0% {-webkit-transform: translateY(0) rotate(0);}
+    50% {-webkit-transform: translateY(10px) rotate(0);}
+    100% {-webkit-transform: translateY(10px) rotate(45deg);}
+}
+@include keyframes(active-menu-bar02) {
+    0% {-webkit-transform: translateY(0) rotate(0);}
+    50% {-webkit-transform: translateY(-10px) rotate(0);}
+    100% {-webkit-transform: translateY(-10px) rotate(-45deg);}
+}
+@include keyframes(bgRun-right_txt) {
+    0% { @include css3-prefix(transform, scaleX(0)); opacity: 0; transform-origin: center left;}
+    100% { @include css3-prefix(transform, scaleX(1)); opacity: 1; transform-origin: center left;}
+}
+@include keyframes(bgRun-right_bg) {
+    0% { @include css3-prefix(transform, scaleX(0)); transform-origin: center left;}
+    25% { @include css3-prefix(transform, scaleX(1)); transform-origin: center left;}
+    75% { @include css3-prefix(transform, scaleX(1)); transform-origin: center right;}
+    100% { @include css3-prefix(transform, scaleX(0)); transform-origin: center right;}
+}

@@ -1,0 +1,6 @@
+#footer {background-color: $black_1; @include pd(all, 5.5rem 0 1.5rem, 3rem 0 1.5rem);}
+.coMap {@include size(100%, 24rem);
+    @include resp(md) {@include size(100%, 30rem);}
+}
+.noTel {@include fSize(3.6rem, 2rem); margin-left: 1rem;}
+.copyRight {@include fSize(1.2rem, 1rem);}

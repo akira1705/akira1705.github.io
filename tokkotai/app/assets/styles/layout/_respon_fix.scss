@@ -1,0 +1,32 @@
+/*===== fix design =====*/
+@media (min-width: 770px) and (max-width: 991px) {
+	
+}
+
+/*===== fix screen > 320 =====*/
+@media (min-width: 321px) and (max-width: 768px) {
+    
+}
+
+/*===== fix screen 8 =====*/
+@media (min-width: 320px) and (max-width: 375px) {
+    
+}
+
+/*===== fix screen 8+ =====*/
+@media (min-width: 376px) and (max-width: 576px) {
+    
+}
+
+@media (min-width: 1200px) {
+    
+}
+
+/*===== fix chrome, safari =====*/
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm), screen and(-webkit-min-device-pixel-ratio:0) {
+    
+}
+
+/*===== remove icon of input =====*/
+input[type='number'] {-moz-appearance:textfield;}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {-webkit-appearance: none;}

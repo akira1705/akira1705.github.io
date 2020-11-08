@@ -1,0 +1,68 @@
+/*===== Top page =====*/
+.banner {position: relative;
+	.headTit {@include posC(centerX); top: 50%;
+		hgroup {width: 6.4rem;
+			h1 {@include fSize(4rem, 1.8rem); line-height: 1.8; font-weight: normal; margin: 0;}
+			@include resp(md) {width: 14.4rem;}
+		}
+		@include respOnly(374px, 414px) {margin-top: -10.8rem;
+			hgroup {width: 8.6rem;
+				h1 {font-size: 2.4rem;}
+			}
+		}
+	}
+}
+.contMenu {
+	&-desc {position: relative;
+		&__pos {@include posC(); width: calc(100% - 3rem);
+			p {@include fSize(1.8rem, 1rem);
+				br {line-height: 1 !important;}
+			}
+		}
+	}
+	&-list {
+		background: url("../images/bg.jpg") no-repeat center top;
+		background-size: 100% 100%;
+		@include pd(t, 2rem);
+		@include mg(t, -2rem);
+		position: relative;
+		.item {border-bottom: solid 0.2rem $col_main;
+			&-cont {width: 100%;}
+			&__1 {@include pd(y, 3rem);
+				&:first-child {border-top: solid 0.2rem $col_main;}
+			}
+			&__2 {
+				.col-md-6 {@include pd(all, 4rem 8rem, 3rem 1.5rem);
+					&:first-child {border-bottom: solid 0.2rem $col_main;}
+				}
+			}
+			&__tit {font-weight: normal; @include fSize(3rem, 2rem);}
+			&__subTit {color: $col_main; font-weight: normal; @include fSize(1.8rem, 1.4rem);}
+			@include resp(md) {border-width: 0.4rem !important;
+				&__1:nth-child(odd) .col-md-6:first-child {order: 1;}
+				&__2 {
+					.col-md-6:first-child {border-right: solid 0.2rem $col_main; border-bottom: none;}
+					.col-md-6:last-child {border-left: solid 0.2rem $col_main;}
+				}
+			}
+		}
+	}
+}
+.derivery {@include pd(y, 8rem, 4rem); position: relative;}
+.payment {background-color: $col_main; @include pd(y, 1.5rem);
+	img {@include size(3.2rem, auto);
+		@include resp(md) {width: 5.4rem;}
+	}
+}
+/*===== Top page =====*/
+
+/*===== 404 page =====*/
+.c404 {padding: 60px 0;
+	&-tit {font-size: 140px; font-weight: bold; line-height: 1; margin-bottom: 30px;}
+	&-txt {font-size: 16px;}
+	@include resp(md) {padding: 120px 0;
+		&-tit {font-size: 160px; font-weight: bold; line-height: 1; margin-bottom: 30px;}
+		&-txt {font-size: 20px;}
+	}
+}
+/*===== 404 page =====*/

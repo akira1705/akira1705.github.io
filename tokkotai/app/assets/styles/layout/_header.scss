@@ -1,0 +1,42 @@
+#header {background-color: $black_1; @include size(100%, $headSP); z-index: 100;
+    .header-top {@include pd(all, 3rem 3.5rem, 1.5rem);
+        @include bgGrad(
+            90deg,
+            #{rgb(222,222,215) 0%,
+                rgba(204,202,178,1) 100%
+            },
+            rgb(222,222,215),
+            rgba(204,202,178,1)
+        );
+    }
+    * {line-height: 1;}
+    #topMenu {
+        @include bgGrad(
+            90deg,
+            #{rgba(94,210,245,1) 0%,
+                rgba(113,225,229,1) 35%,
+                rgba(164,224,208,1) 65%,
+                rgba(190,220,193,1) 100%
+            },
+            #5ed2f5,
+            #bedcc1
+        );
+    }
+    @include resp(md) {height: auto; transition: 0.3s;}
+}
+.logo {
+    img {height: 2.2rem; @include mg(b, 0);
+        @at-root #{selector-parent(&, 1)} {
+            #footer .logo & {height: 8rem;
+                @include resp(md) {height: 10rem;}
+            }
+        }
+        @include resp(md) {height: 2.2rem;}
+    }
+}
+.sns {@include pd(t, 0, 3rem);
+    &-item {@include size(auto, 2.2rem); @include mg(x, 0, 4rem);
+        &:not(:first-child) {margin-left: 35px;}
+        img {height: 100%;}
+    }
+}
